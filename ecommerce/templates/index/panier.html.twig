@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1 onclick="window.location.href='/';"> Revenir à l'accueil </h1>
+
+    <div class="container">
+        <h1 class="mt-3 mb-4">Produits disponible</h1>
+        <div class="row">
+            {% for produit in produits %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="https://via.placeholder.com/200x150" alt="{{ produit.libelle }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ produit.libelle }}</h5>
+                            <p class="card-text">{{ produit.prix }}</p>
+                            <div class="d-flex justify-content-between align-item-center">
+                                <a href="#" class="btn btn-dark">View details</a>
+                                <span class="h5 mt-auto">{{ produit.description }} €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

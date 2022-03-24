@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SportLudique - Accueil{% endblock %}
+
+{% block head %}
+<meta charset="UTF-8">
+<link re="stylesheet" href="index.css">
+{% endblock %}
+
+{% block body %}
+
+{%  if app.user == false %}
+<input type="button" value="Se Connecter" onclick="window.location.href = '/login';" style="float: right;">
+
+{% else %}
+    <input type="button" value="Se déconnecter" onclick="window.location.href ='/logout';" style="float: right;">
+    <input type="button" value="Panier" onclick="window.location.href ='/panier';" style="float: right;">
+    {% for role in app.user.roles %}
+        {% if role == "ROLE_USER" %}
+
+        {% elseif role == "ROLE_ADMIN" %}
+            <input type="button" value="Ajouter produit" onclick="window.location.href = '/produit/new';" >
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 400px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+<div class="example-wrapper">
+    <h1>SportLudique</h1>
+    <ul>
+
+    </ul>
+
+    <form role="search">
+  <div>
+    <input type="search" id="maRecherche"
+     placeholder="Rechercher sur le site"
+     aria-label="Rechercher parmi le contenu du site">
+    <button>Rechercher</button>
+  </div>
+</form>
+
+</div>
+{% endblock %}
