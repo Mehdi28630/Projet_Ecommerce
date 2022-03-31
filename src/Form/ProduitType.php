@@ -6,6 +6,7 @@ use App\Entity\Produit;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ProduitType extends AbstractType
 {
@@ -17,6 +18,12 @@ class ProduitType extends AbstractType
             ->add('Description')
             ->add('QteStock')
             ->add('Image')
+            ->add('Categorie', EntityType::class, array(
+                'class' => 'App\Entity\Categorie',
+                'choice_label'=>'libelle',
+                'expanded'=>false,
+                'multiple'=>false,
+            ))
         ;
     }
 

@@ -53,6 +53,7 @@ class Produit
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
+     * @Assert\NotNull(message="Veuillez choisir une catégorie")
      */
     private $categorie;
 

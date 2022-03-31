@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Produit;
+use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,15 +28,7 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-    /**
-     * @Route("/homme", name="homme")
-     */
-    public function homme(): Response
-    {
-        return $this->render('index/homme.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
-    }
+
 
     /**
     * @Route("/femme", name="femme")
@@ -50,12 +44,26 @@ class IndexController extends AbstractController
     * @Route("/enfant", name="enfant")
     */
 
-    public function enfant(): Response
+    public function enfant(ProduitRepository $produitRepository): Response
     {
         return $this->render('index/enfant.html.twig', [
             'controller_name' => 'IndexController',
+            'produits' => $produitRepository->findBy(["categorie" =>3]),
         ]);
     }
+
+    /**
+     * @Route("/homme", name="homme")
+     */
+
+    public function homme(ProduitRepository $produitRepository): Response
+    {
+        return $this->render('index/enfant.html.twig', [
+            'controller_name' => 'IndexController',
+            'produits' => $produitRepository->findBy(["categorie" =>1]),
+        ]);
+    }
+
     /**
     * @Route("/promotions", name="promotions")
     */
