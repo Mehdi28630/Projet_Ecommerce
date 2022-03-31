@@ -28,6 +28,7 @@
                 <td>{{ produit.Prix }}</td>
                 <td>{{ produit.Description }}</td>
                 <td>{{ produit.QteStock }}</td>
+                <td><img src="../images/{{ produit.Image }}"></td>
                 <td>
 
                     <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>

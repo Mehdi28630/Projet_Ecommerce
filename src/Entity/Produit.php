@@ -44,21 +44,19 @@ class Produit
      */
     private $iduser;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Categorie::class, inversedBy="idproduit")
-     */
-    private $idcategorie;
+
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $Image;
 
-    public function __construct()
-    {
-        $this->iduser = new ArrayCollection();
-        $this->idcategorie = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
+     */
+    private $categorie;
+
+
 
     public function getId(): ?int
     {
@@ -140,29 +138,7 @@ class Produit
         return $this;
     }
 
-    /**
-     * @return Collection|categorie[]
-     */
-    public function getIdcategorie(): Collection
-    {
-        return $this->idcategorie;
-    }
 
-    public function addIdcategorie(categorie $idcategorie): self
-    {
-        if (!$this->idcategorie->contains($idcategorie)) {
-            $this->idcategorie[] = $idcategorie;
-        }
-
-        return $this;
-    }
-
-    public function removeIdcategorie(categorie $idcategorie): self
-    {
-        $this->idcategorie->removeElement($idcategorie);
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {
@@ -175,4 +151,15 @@ class Produit
 
         return $this;
     }
-}
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }}
