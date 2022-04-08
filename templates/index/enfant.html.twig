@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}SportLudique - Homme{% endblock %}
+{% block title %}SportLudique - Enfant{% endblock %}
 
 {% block body %}
 
@@ -27,11 +27,11 @@
                 <td>{{ produit.Description }}</td>
                 <td>{{ produit.QteStock }}</td>
                 {#                <td><img src="../images/{{ produit.Image }}"></td>#}
-                <td>
+{#                <td>#}
 
-                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
-                </td>
+{#                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>#}
+{#                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>#}
+{#                </td>#}
             </tr>
         {% else %}
             <tr>

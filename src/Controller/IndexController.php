@@ -13,10 +13,11 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="base")
      */
-    public function index(): Response
+    public function index(ProduitRepository $produitRepository): Response
     {
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
+            'produits' => $produitRepository->findAll(),
         ]);
     }
     /**
@@ -34,10 +35,11 @@ class IndexController extends AbstractController
     * @Route("/femme", name="femme")
     */
 
-    public function femme(): Response
+    public function femme(ProduitRepository $produitRepository): Response
     {
         return $this->render('index/femme.html.twig', [
             'controller_name' => 'IndexController',
+            'produits' => $produitRepository->findBy(["categorie" =>2]),
         ]);
     }
     /**
@@ -58,7 +60,7 @@ class IndexController extends AbstractController
 
     public function homme(ProduitRepository $produitRepository): Response
     {
-        return $this->render('index/enfant.html.twig', [
+        return $this->render('index/homme.html.twig', [
             'controller_name' => 'IndexController',
             'produits' => $produitRepository->findBy(["categorie" =>1]),
         ]);
