@@ -104,10 +104,10 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 /*------------------------------------------------------------------
 [ Bootstrap ]*/
-.container {max-width: 1380px;}
+.container {max-width: 400px;}
 
-@media (max-width: 1600px) {
-  .container {max-width: 1200px;}
+@media (max-width: 450px) {
+  .container {max-width: 400px;}
 }
 
 /*------------------------------------------------------------------
@@ -116,8 +116,8 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 
 .tailleimg {
-  max-width: 10%;
-  height: auto;
+  height: 400px;
+  width: 200px;
 }
 
 
@@ -2044,9 +2044,10 @@ input.num-product::-webkit-inner-spin-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ Block2 ]*/
-.block2-pic {
-  position: relative;
-}
+/*.block2-pic {
+  width:200px;
+  position: static;
+}*/
 
 .block2-btn {
   position: absolute;
@@ -2065,7 +2066,7 @@ input.num-product::-webkit-inner-spin-button {
 
 /*---------------------------------------------*/
 .block2-txt-child1 {
-  width: calc(100% - 30px);
+  width: 10px;
 }
 
 .block2-txt-child2 {
@@ -3065,7 +3066,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .hov-img0 img{
-  width: 100%;
+  width: 20%;
   -webkit-transition: transform 0.9s ease;
   -o-transition: transform 0.9s ease;
   -moz-transition: transform 0.9s ease;
